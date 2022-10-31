@@ -46,19 +46,31 @@ var StaffManager = /** @class */ (function () {
         console.table(Group);
     };
     StaffManager.deleteStaff = function () {
-        var checkCodeDelete = false;
-        while (!checkCodeDelete) {
-            var idDelete = readlineSync.question('nhap code:  ');
-            for (var i = 0; i < StaffManager.totalStaff(); i++) {
-                if (StaffManager.staff[i].getcode() == idDelete) {
-                    this.staff.splice(i, 1);
-                    checkCodeDelete = true;
-                    break;
-                }
-            }
-            console.log('code khong dung');
+        var codeDelete = readlineSync.question('nhap ma nv');
+        var index = this.checkindex(codeDelete);
+        if (index == -1) {
+            console.log('id khong dung');
+        }
+        else {
+            this.staff.splice(index, 1);
+            console.log('xoa thanh cong');
         }
     };
+    // static deleteStaff(): void {
+    //     // let checkCodeDelete = false;
+    //     // while (!checkCodeDelete) {
+    //         let codeDelete = readlineSync.question('nhap code:  ');
+    //         for (let i = 0; i < StaffManager.staff.length; i++) {
+    //             if (StaffManager.staff[i].getcode() == codeDelete) {
+    //                 this.staff.splice(i, 1);
+    //                 // checkCodeDelete = true;
+    //                 console.log('xoa thanh cong')
+    //                 break;
+    //             }
+    //
+    //         }
+    //     console.log('khong dung ma nhan vien');
+    //
     StaffManager.checkindex = function (code) {
         for (var i = 0; i < this.staff.length; i++) {
             if (this.staff[i].code == code) {
@@ -68,25 +80,97 @@ var StaffManager = /** @class */ (function () {
         return -1;
     };
     StaffManager.StaffEdit = function () {
-        var code = +readlineSync.question('nhap code can tim:   ');
+        var code = readlineSync.question('nhap code can tim:   ');
         var index = this.checkindex(code);
-        if (index >= 0) {
+        if (index == -1) {
+            console.log('khong tim thay id.');
+        }
+        else {
             var names = readlineSync.question('nhap ten moi:   ');
+            this.staff[index].setName(names);
             var sex = readlineSync.question('nhap gioi tinh:   ');
+            this.staff[index].setSex(sex);
             var dateofbirth = readlineSync.question('nhap ngay, thang, nam sinh:   ');
+            this.staff[index].setDateOfBirth(dateofbirth);
             var phoneNumber = readlineSync.question('nhap sdt:   ');
             var address = readlineSync.question('nhap dia chi:   ');
             var group = readlineSync.question('nhap group:   ');
-            this.staff[index].setName(names);
-            this.staff[index].setSex(sex);
-            this.staff[index].setDateOfBirth(dateofbirth);
             this.staff[index].setPhoneNumber(phoneNumber);
             this.staff[index].setAddress(address);
             this.staff[index].setGroup(group);
             console.log('da thay doi thanh cong.');
         }
-        else {
+    };
+    StaffManager.editName = function () {
+        var code = readlineSync.question('nhap code can tim:   ');
+        var index = this.checkindex(code);
+        if (index == -1) {
             console.log('khong tim thay id.');
+        }
+        else {
+            var names = readlineSync.question('nhap ten moi:   ');
+            this.staff[index].setName(names);
+            console.log('da thay doi thanh cong.');
+        }
+    };
+    StaffManager.editSex = function () {
+        var code = readlineSync.question('nhap code can tim:   ');
+        var index = this.checkindex(code);
+        if (index == -1) {
+            console.log('khong tim thay id.');
+        }
+        else {
+            var sex = readlineSync.question('nhap gioi tinh:   ');
+            this.staff[index].setSex(sex);
+            console.log('da thay doi thanh cong.');
+        }
+    };
+    StaffManager.editDateOfBirth = function () {
+        var code = readlineSync.question('nhap code can tim:   ');
+        var index = this.checkindex(code);
+        if (index == -1) {
+            console.log('khong tim thay id.');
+        }
+        else {
+            var dateofbirth = readlineSync.question('nhap ngay, thang, nam sinh:   ');
+            this.staff[index].setDateOfBirth(dateofbirth);
+            console.log('da thay doi thanh cong.');
+        }
+    };
+    StaffManager.editPhoneNumber = function () {
+        var code = readlineSync.question('nhap code can tim:   ');
+        var index = this.checkindex(code);
+        if (index == -1) {
+            console.log('khong tim thay id.');
+        }
+        else {
+            var phoneNumber = readlineSync.question('nhap sdt:   ');
+            this.staff[index].setPhoneNumber(phoneNumber);
+            console.log('da thay doi thanh cong.');
+        }
+    };
+    StaffManager.editAdress = function () {
+        var code = readlineSync.question('nhap code can tim:   ');
+        var index = this.checkindex(code);
+        if (index == -1) {
+            console.log('khong tim thay id.');
+        }
+        else {
+            var address = readlineSync.question('nhap dia chi:   ');
+            this.staff[index].setAddress(address);
+            console.log('da thay doi thanh cong.');
+        }
+    };
+    StaffManager.editgroup = function () {
+        var code = readlineSync.question('nhap code can tim:   ');
+        var index = this.checkindex(code);
+        if (index == -1) {
+            console.log('khong tim thay id.');
+        }
+        else {
+            var group = readlineSync.question('nhap group:   ');
+            this.staff[index].setGroup(group);
+            console.log('da thay doi thanh cong.');
         }
     };
     StaffManager.staff = [];

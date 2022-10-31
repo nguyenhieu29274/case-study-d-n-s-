@@ -1,66 +1,75 @@
 export class Staff {
-     code:string;
-     name:string;
-     sex:string;
-     dateOfBirth:string;
-     phoneNumber:number;
-     address:string;
-     group:string;
+    code: string;
+    name: string;
+    sex: string;
+    dateOfBirth: string;
+    phoneNumber: number;
+    address: string;
+    group: string;
 
-    constructor(code:string,name:string,sex:string,dateOfBirth:string,phoneNumber:number,address:string,group:string) {
-        this.code=code;
-        this.name=name;
-        this.sex=sex;
-        this.dateOfBirth=dateOfBirth;
-        this.phoneNumber=phoneNumber;
-        this.address=address;
-        this.group=group
-
+    constructor(code: string, name: string, sex: string, dateOfBirth: string, phoneNumber: number, address: string, group: string) {
+        this.code = code;
+        this.name = name;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.group = group
     }
 
-
-    getcode():string {
+    getcode(): string {
         return this.code
     }
-    getName(): string{
+
+    getName(): string {
         return this.name
     }
-    getSex():string {
+
+    getSex(): string {
         return this.sex
     }
-    getDateofbirth():string{
+
+    getDateofbirth(): string {
         return this.dateOfBirth
     }
-    getPhoneNumber():number {
+
+    getPhoneNumber(): number {
         return this.phoneNumber
     }
-    getAddress():string {
+
+    getAddress(): string {
         return this.address
     }
-    getGroup():string{
+
+    getGroup(): string {
         return this.group
     }
 
-    setCode(code:string):void {
-        this.code=code
-    }
-    setName(fistName:string):void {
-        this.name=fistName
-    }
-    setSex(sex:string):void {
-        this.sex=sex
-    }
-    setDateOfBirth(dateOfBirth:string){
-        this.dateOfBirth=dateOfBirth
-    }
-    setPhoneNumber(phoneNumber:number):void {
-        this.phoneNumber=phoneNumber
-    }
-    setAddress(address:string):void{
-        this.address=address
-    }
-    setGroup(group:string):void {
-        this.group=group
+    setCode(code: string): void {
+        this.code = code
     }
 
+    setName(fistName: string): void {
+        this.name = fistName
+    }
+
+    setSex(sex: string): void {
+        this.sex = sex
+    }
+
+    setDateOfBirth(dateOfBirth: string) {
+        this.dateOfBirth = dateOfBirth
+    }
+
+    setPhoneNumber(phoneNumber: number): void {
+        this.phoneNumber = phoneNumber
+    }
+
+    setAddress(address: string): void {
+        this.address = address
+    }
+
+    setGroup(group: string): void {
+        this.group = group
+    }
 }
