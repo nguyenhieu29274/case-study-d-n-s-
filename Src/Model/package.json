@@ -1,0 +1,15 @@
+{
+  "name": "model",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Staff.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.11.7",
+    "readline-sync": "^1.4.10"
+  }
+}
